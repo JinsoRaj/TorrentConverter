@@ -2,7 +2,7 @@
 
 startMsg = async (ctx) =>
 {
-    ctx.reply(`👋 Hey ${ctx.from.first_name} ..\n\n<b>Send me a TORRENT file I will give u the Magnetic Link</b> & <strike>vice versa</strike>.\n\n👉 <code>Magnet to Torrent isn't stable.</code>. \n`,
+    ctx.reply(`👋 Hey ${ctx.from.first_name} ..\n\n<b>Send me a TORRENT file I will give u the Magnetic Link</b> & <strike>vice versa</strike>.\nCommands: /help /about\n👉 <code>Magnet to Torrent isn't stable.</code>. \n`,
     {
         parse_mode: "HTML",
         reply_to_message_id: ctx.message.message_id,
