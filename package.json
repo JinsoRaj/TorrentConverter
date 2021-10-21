@@ -1,0 +1,28 @@
+{
+  "name": "torrentconverter",
+  "description": "testing",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JinsoRaj/TorrentConverter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JinsoRaj/TorrentConverter/issues"
+  },
+  "homepage": "https://github.com/JinsoRaj/TorrentConverter#readme",
+  "dependencies": {
+    "@grammyjs/files": "^1.0.2",
+    "dotenv": "^10.0.0",
+    "grammy": "^1.3.4",
+    "magnet-to-torrent": "^1.0.8",
+    "magnet2torrent-js": "^1.4.0",
+    "torrent2magnet": "^1.0.0"
+  }
+}
