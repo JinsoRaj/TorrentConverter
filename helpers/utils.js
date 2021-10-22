@@ -5,9 +5,18 @@ const m2tJs = require('magnet2torrent-js');
 const t2m = require('torrent2magnet');
 
 
-getTorrentFile = async (ctx, magnet, InputFile, status) =>
+getTorrentFile = async (ctx, magnet, InputFile) =>
 {
-    const linkToFile = new m2tJs({ timeout: 15 });
+    var status = m2t.isMagnet(magnet) ? await ctx.reply("💫",
+    {
+        parse_mode: "HTML",
+        reply_to_message_id: ctx.message.message_id
+    }) : await ctx.reply("❌",
+    {
+        reply_to_message_id: ctx.message.message_id
+    });
+
+    const linkToFile = new m2tJs({ timeout: 20 });
     linkToFile.getTorrent(magnet)
     .then(torrent => {
         ctx.replyWithDocument(new InputFile(torrent.toTorrentFile(),`${torrent.name}.torrent`),{
@@ -40,4 +49,4 @@ getMagnetLink = async (ctx, status) =>
     });   
 };
 
-module.exports = { m2t, getTorrentFile, getMagnetLink }
+module.exports = { getTorrentFile, getMagnetLink }

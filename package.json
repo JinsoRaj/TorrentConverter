@@ -1,6 +1,6 @@
 {
   "name": "torrentconverter",
-  "description": "testing",
+  "description": "A Telegram bot to convert Torrent files to magnetic link",
   "version": "1.0.0",
   "main": "bot.js",
   "scripts": {
@@ -10,9 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/JinsoRaj/TorrentConverter.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "telegram",
+    "telegram-bot",
+    "torrent",
+    "grammy"
+  ],
+  "author": "JinsoRaj",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/JinsoRaj/TorrentConverter/issues"
   },

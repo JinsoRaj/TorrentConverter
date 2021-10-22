@@ -4,7 +4,7 @@
 
 require('dotenv').config();
 const { startMsg, helpMsg, aboutMsg } = require('./helpers/commands');
-const { m2t, getTorrentFile, getMagnetLink } = require('./helpers/utils');
+const { getTorrentFile, getMagnetLink } = require('./helpers/utils');
 
 const { Bot, InputFile, GrammyError, HttpError } = require("grammy");
 const { hydrateFiles } = require("@grammyjs/files");
@@ -27,18 +27,14 @@ bot.command("about", (ctx) => {
 // Handle text messages
 bot.on("message:text", async (ctx) => {
     const mesg = ctx.message.text;
+    var words = mesg.split(' ');
     if(mesg.startsWith('magnet:?')){
         const magnet = mesg;
-        var status = m2t.isMagnet(magnet) ? await ctx.reply("💫",
-        {
-            parse_mode: "HTML",
-            reply_to_message_id: ctx.message.message_id
-        }) : await ctx.reply("❌",
-        {
-            reply_to_message_id: ctx.message.message_id
-        });
-
-        getTorrentFile(ctx, magnet, InputFile, status);
+        getTorrentFile(ctx, magnet, InputFile);
+    }
+    else if ( mesg.startsWith("/") && words[1]?.startsWith('magnet:?') ) {
+        const magnet = words[1];
+        getTorrentFile(ctx, magnet, InputFile);
     }
 });
 
