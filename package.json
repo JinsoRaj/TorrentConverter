@@ -15,6 +15,9 @@
     "telegram-bot",
     "torrent"
   ],
+  "engines": {
+    "node": "8"
+  },
   "author": "",
   "license": "MIT",
   "bugs": {
