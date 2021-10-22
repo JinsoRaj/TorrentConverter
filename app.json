@@ -1,0 +1,21 @@
+{
+  "name": "Torrent Converter",
+  "description": "This app does one little thing, and does it well.",
+  "keywords": ["telegram", "telegram-bot", "torrent"],
+  "repository": "https://github.com/JinsoRaj/TorrentConverter",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Your Bot token from @Botfather",
+      "value": ""
+    },
+    "OWNER_ID": {
+      "description": "User id",
+      "value": "1004813228"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
