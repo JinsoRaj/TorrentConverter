@@ -1,14 +1,14 @@
 # Torrent Converter
 ([@TorrentToMagnetRobot](https://t.me/TorrentToMagnetRobot))
 
-A Telegram bot to convert Torrent files -> magnetic link & vice versa.
+A Telegram bot to convert Torrent files -> magnet links & vice versa.
 
-Works in Groups & Private.
+Works in Groups & private conversations.
 
 # Usage
 1. `git clone https://github.com/JinsoRaj/TorrentConverter`
 2. `cd TorrentConverter`
-3. `cp .env.example .env` 
+3. `cp .env.example .env`
 4. Fill in `.env`
 5. `npm install`
 6. `npm start`
