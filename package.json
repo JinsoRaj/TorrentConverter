@@ -10,9 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/JinsoRaj/TorrentConverter.git"
   },
-  "keywords": [],
+  "keywords": [
+    "telegram",
+    "telegram-bot",
+    "torrent"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/JinsoRaj/TorrentConverter/issues"
   },
