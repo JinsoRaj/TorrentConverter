@@ -10,17 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/JinsoRaj/TorrentConverter.git"
   },
-  "keywords": [
-    "telegram",
-    "telegram-bot",
-    "torrent"
-  ],
-  "engines": {
-    "node": "16.6.1",
-    "npm": "7.20.3"
-  },
+  "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/JinsoRaj/TorrentConverter/issues"
   },

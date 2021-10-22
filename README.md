@@ -13,10 +13,6 @@ Works in Groups & Private.
 5. `npm install`
 6. `npm start`
 
-# Deploy
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
 ## Credits
 - Developers of [m2t](https://www.npmjs.com/package/magnet2torrent-js), [t2m](https://www.npmjs.com/package/torrent2magnet)
 - [grammy](https://grammy.dev/) Framework 💙
