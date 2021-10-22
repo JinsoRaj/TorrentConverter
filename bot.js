@@ -43,7 +43,7 @@ bot.on("message:text", async (ctx) => {
 });
 
 // Handle files
-bot.on('message:document', async (ctx) => {
+bot.on('message:document').filter(ctx => ctx.message.document.mime_type === 'application/x-bittorrent', async (ctx) => {
     var status = await ctx.reply("✍️",
     {
         parse_mode: "HTML",
