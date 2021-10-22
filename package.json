@@ -16,7 +16,8 @@
     "torrent"
   ],
   "engines": {
-    "node": "8"
+    "node": "16.6.1",
+    "npm": "7.20.3"
   },
   "author": "",
   "license": "MIT",
