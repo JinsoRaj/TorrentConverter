@@ -1,5 +1,5 @@
 # Torrent Converter
-([@TorrentToMagnetRobot](https://t.me/TorrentToMagnetRobot))
+( Live: [@TorrentToMagnetRobot](https://t.me/TorrentToMagnetRobot) )
 
 A Telegram bot to convert Torrent files -> magnet links & vice versa.
 
@@ -21,6 +21,6 @@ Works in Groups & private conversations.
 </details>
 
 ## Credits
-- Developers of [m2t](https://www.npmjs.com/package/magnet2torrent-js), [t2m](https://www.npmjs.com/package/torrent2magnet)
+- Developers of [m2t](https://www.npmjs.com/package/magnet2torrent-js), [t2m](https://www.npmjs.com/package/torrent2magnet) 😍
 - [grammy](https://grammy.dev/) Framework 💙
-- Pirates who kanging without credits.
+- Bechilar parti for VPS 😌

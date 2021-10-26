@@ -2,7 +2,7 @@
 
 startMsg = async (ctx) =>
 {
-    ctx.reply(`👋 Hey ${ctx.from.first_name} ..\n\n<b>Send me a TORRENT file I will give u the Magnetic Link</b> & <strike>vice versa</strike>.\nCommands: /help /about\n👉 <code>Magnet to Torrent isn't stable.</code>. \n`,
+    ctx.reply(`👋 Hey ${ctx.from.first_name} ..\n\nWith me you can convert TORRENT file to MAGNET Link & vice versa.\nI can handle groups also.\n\nCommands: /help /about\n`,
     {
         parse_mode: "HTML",
         reply_to_message_id: ctx.message.message_id,
@@ -19,7 +19,7 @@ startMsg = async (ctx) =>
 
 helpMsg = async (ctx) =>
 {
-    ctx.reply(`I can convert magnetic links to torrent files and vice versa.\nI can manage your torrent / leech groups also. <a href="https://t.me/TorrentToMagnetRobot?startgroup=start">Add me to your groups.</a>`,
+    ctx.reply(`I can convert magnet links to torrent files and vice versa.\nI can manage your torrent / leech groups also. <a href="https://t.me/TorrentToMagnetRobot?startgroup=start">Add me to your groups.</a>`,
     {
         parse_mode: "HTML",
         disable_web_page_preview: true,
