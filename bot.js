@@ -1,66 +1,29 @@
-// A simple magnet->torrent & torrent->magnet converter Telegram bot.
-// (c) JinsoRaj : https://github.com/JinsoRaj/TorrentConverter
-// ToDo: DB, itorrents, Logger, Groups /cmd@bot magnetlink support.
+// Torrent Converter: a Telegram bot that converts magnet links ⇄ .torrent files.
+// (c) JinsoRaj · MIT · https://github.com/JinsoRaj/TorrentConverter
+//
+// This file stays the entry point so existing setups (`node bot.js`,
+// `npm start`, `pm2 start bot.js`) keep working after upgrading.
 
-require('dotenv').config();
-const { startMsg, helpMsg, aboutMsg } = require('./helpers/commands');
-const { getTorrentFile, getMagnetLink } = require('./helpers/utils');
+const [major, minor] = process.versions.node.split('.').map(Number);
+if (major < 22 || (major === 22 && minor < 13)) {
+  console.error(
+    `TorrentConverter v2 needs Node.js 22.13 or newer (Node 24 LTS recommended), but this is ${process.version}.\n` +
+      'Upgrade Node.js (see "Upgrading from v1" in README.md) and start the bot again.',
+  );
+  process.exit(1);
+}
 
-const { Bot, InputFile, GrammyError, HttpError } = require("grammy");
-const { hydrateFiles } = require("@grammyjs/files");
-const bot = new Bot(process.env.BOT_TOKEN);
-bot.api.config.use(hydrateFiles(bot.token));
+// Node's built-in SQLite works fine but still prints an "experimental" notice
+// on some versions; hide just that one warning.
+const emitWarning = process.emitWarning;
+process.emitWarning = function (warning, ...args) {
+  if (String(warning?.message ?? warning).includes('SQLite is an experimental feature')) return;
+  return emitWarning.call(this, warning, ...args);
+};
 
-// Commands
-bot.command("start", (ctx) => {
-    startMsg(ctx);
+// Plain dynamic import (no top-level await) so this file also loads when a
+// process manager require()s it.
+import('./src/main.js').catch((err) => {
+  console.error('Failed to start TorrentConverter:', err);
+  process.exit(1);
 });
-
-bot.command("help", (ctx) => {
-    helpMsg(ctx);
-});
-
-bot.command("about", (ctx) => {
-    aboutMsg(ctx);
-});
-
-// Handle text messages
-bot.on("message:text", async (ctx) => {
-    const mesg = ctx.message.text;
-    var words = mesg.split(' ');
-    if(mesg.startsWith('magnet:?')){
-        const magnet = mesg;
-        getTorrentFile(ctx, magnet, InputFile);
-    }
-    else if ( mesg.startsWith("/") && words[1]?.startsWith('magnet:?') ) {
-        const magnet = words[1];
-        getTorrentFile(ctx, magnet, InputFile);
-    }
-});
-
-// Handle files
-bot.on('message:document').filter(ctx => ctx.message.document.mime_type === 'application/x-bittorrent', async (ctx) => {
-    var status = await ctx.reply("✍️",
-    {
-        parse_mode: "HTML",
-        reply_to_message_id: ctx.message.message_id
-    });
-    getMagnetLink(ctx, status);
-    
-})
-
-bot.catch((err) => {
-    const ctx = err.ctx;
-    console.error(`Error while handling update ${ctx.update.update_id}:`);
-    const e = err.error;
-    if (e instanceof GrammyError) {
-      console.error("Error in request:", e.description);
-    } else if (e instanceof HttpError) {
-      console.error("Could not contact Telegram:", e);
-    } else {
-      console.error("Unknown error:", e);
-    }
-  });
-
-// Start bot
-bot.start();
